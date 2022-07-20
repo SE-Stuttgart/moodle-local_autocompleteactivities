@@ -12,7 +12,8 @@ class observer {
     
     public static function get_course_module_name($cm, $cm_type_name) {
         global $DB;
-        return $DB->get_record($cm_type_name, array('id'=>$cm->instance))->name;  
+        $cm_type_specific_record = $DB->get_record($cm_type_name, array('id'=>$cm->instance));
+        return $cm_type_name == 'label'? $cm_type_specific_record->intro : $cm_type_specific_record->name;  
     }
 
     public static function prefix_match($name, $comparison_name) {
