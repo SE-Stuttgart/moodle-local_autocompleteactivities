@@ -58,16 +58,6 @@ class observer {
         return $name_prefix == $cmp_prefix;
     }
 
-    public static function forward_event($url, $data){
-        $curl = curl_init($url);
-        $json = json_encode($data);
-        curl_setopt($curl, CURLOPT_POST, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $json);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $response = curl_exec($curl);
-        curl_close($curl);
-    }
 
     public static function mark_complete($courseid, $userid, $coursemodule) {
         global $DB;
@@ -76,7 +66,6 @@ class observer {
         $completion = new \completion_info($course);
         $completion->set_module_viewed($coursemodule, $userid);
         $completion->update_state($coursemodule, COMPLETION_COMPLETE, $userid);
-        // observer::forward_event('http://193.196.53.252:44123/event', array("COMPLETION STATE UPDATED"));
     }
 
     public static function get_completion_state($coursemodule, $userid) {
@@ -95,8 +84,6 @@ class observer {
         $contextinstanceid = $data['contextinstanceid'];
         $updated_completion_state = $data['other']['completionstate'];
 
-        // observer::forward_event('http://193.196.53.252:44123/event', array("NEW EVENT WITH COMPLETIONSTATE", $updated_completion_state));
-
         $cm = $DB->get_record('course_modules', array('id'=>$contextinstanceid));
         
         // check if course associated with update is in whitelist specified in settings
@@ -112,13 +99,10 @@ class observer {
             return;
         }
         
-        // observer::forward_event('http://193.196.53.252:44123/event', $data);
         if($updated_completion_state == 1) {
             $cm_type_name = observer::get_course_module_module_type_name($cm);
             $cm_name = observer::get_course_module_name($cm, $cm_type_name);
             $courseid = $data['courseid'];
-
-            // observer::forward_event('http://193.196.53.252:44123/event', array("ORIGINAL MODULE EVENT", $cm_name, $cm_type_name));
 
             // only update if completionstate changed (to positive)
             $section_cms = $DB->get_records("course_modules", array('section'=>$cm->section)); // get all course modules in the same section as cm from event
@@ -131,12 +115,10 @@ class observer {
                     $related_cm_name = observer::get_course_module_name($related_cm, $related_cm_typename);
                     
                     if($related_cm->id != $cm->id) { // don't re-trigger event for event source 
-                        // observer::forward_event('http://193.196.53.252:44123/event', array("RELATED TYPE NAME", $related_cm_typename, "RELATED NAME", $related_cm_name));
                         //  || $related_cm_typename == "page"
                         if($related_cm_typename == 'book' || $related_cm_typename == 'resource' || $related_cm_typename == 'label' || $related_cm_typename == "url") { // whitelist related course modules from same section by module type
                             if($related_cm_typename == "label" and strpos($related_cm_name, "kann ich schon") !== false) {
                                 $cm_label_kannichschon = $related_cm;
-                                // observer::forward_event('http://193.196.53.252:44123/event', array("   -> FOUND kann ich schon"));
                             }
                             elseif(observer::prefix_match($cm_name, $related_cm_name)) {
                                 observer::mark_complete($courseid, $userid, $related_cm);
@@ -144,17 +126,14 @@ class observer {
                         }
                     }
 
-                    observer::forward_event('http://193.196.53.252:44123/event', array(" -> RELATED CM", $related_cm_name, $related_cm_typename));
-                        if($related_cm_typename != "label" && $related_cm_typename != 'page' && !observer::get_completion_state($related_cm, $userid)) { // labels and pages should not count as non-completed items
-                            // observer::forward_event('http://193.196.53.252:44123/event', array("    -> NOT ALL DONE"));
-                            $all_done = false; // we can't set "kann ich schon" label to "completed" since not all modules in this course section were completed
+                    if($related_cm_typename != "label" && $related_cm_typename != 'page' && !observer::get_completion_state($related_cm, $userid)) { // labels and pages should not count as non-completed items
+                        $all_done = false; // we can't set "kann ich schon" label to "completed" since not all modules in this course section were completed
                     }
                 }
             }
 
             // mark "kann ich schon" label as "completed" because all course modules in the section are completed
             if($all_done && !is_null($cm_label_kannichschon)) {
-                // observer::forward_event('http://193.196.53.252:44123/event', array(" ==> Kann ich schon is marked done"));
                 observer::mark_complete($courseid, $userid, $cm_label_kannichschon);
             }
         }
