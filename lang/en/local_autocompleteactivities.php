@@ -17,7 +17,7 @@
 /**
  * Plugin strings are defined here.
  *
- * @package     local_autocomplete_activities
+ * @package     local_autocompleteactivities
  * @category    string
  * @copyright   2022 Universtity of Stuttgart <dirk.vaeth@ims.uni-stuttgart.de>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later

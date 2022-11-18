@@ -17,7 +17,7 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     local_autocomplete_activities
+ * @package     local_autocompleteactivities
  * @copyright   2022 Universtity of Stuttgart <dirk.vaeth@ims.uni-stuttgart.de>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -26,6 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_autocompleteactivities';
 $plugin->release = '0.2.0';
-$plugin->version = 2022111503;
+$plugin->version = 2022111801;
 $plugin->requires = 2020061514;
 $plugin->maturity = MATURITY_STABLE;

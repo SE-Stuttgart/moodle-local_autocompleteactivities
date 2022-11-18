@@ -17,7 +17,7 @@
 /**
  * Plugin administration pages are defined here.
  *
- * @package     mod_icecreamgame
+ * @package     local_autocompleteactivities
  * @category    admin
  * @copyright   2022 Universtity of Stuttgart <dirk.vaeth@ims.uni-stuttgart.de>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
