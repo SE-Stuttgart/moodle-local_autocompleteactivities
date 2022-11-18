@@ -1,7 +1,6 @@
 # Autocomplete related activities #
 
-## German description
-
+## Beschreibung
 **English version please see below**
 
 Dieses Plugin erlaubt es, Aktivitäten und Arbeitsmaterial vom Typ URL, Datei oder Buch als Alternativen zur Verfügung zu stellen. 
@@ -19,6 +18,19 @@ zur Verfügung stellen. Das Plugin erkennt dann, dass es sich um Alternativen ha
 Außerdem ist es möglich, zusätzlich ein Textfeld anzulegen, das den Text "kann ich schon" enthält. Dadurch können Lernende selbständig markieren, welches Material sie überspringen wollen. Falls so ein Textfeld vorhanden ist, wird es bei der Erledigung der Aktivitäten in dem Abschnitt automatisch ebenfalls als erledigt gekennzeichnet. Andersherum geschieht das allerdings nicht automatisch: wird nur das Textfeld "kann ich schon" erledigt, behalten die weiteren Materialien ihren Erledigungs-Status. 
 
 Das Plugin wird nur in den Kursen aktiv, für die es konfiguriert wurde (durch Angabe der Kurs-IDs der gewünschten Kurse bei den Einstellungen des Plugins).
+
+## Installation über das Web-Interface von Moodle
+**English version please see below**
+
+1. Laden Sie unter [https://github.com/SE-Stuttgart/kib3_moodleplugin_autocompleteactivities/releases] das .zip-File mit der neuesten Version.
+2. Loggen Sie sich in Ihrem Moodle als Admin ein und gehen Sie zu _Website-Administration > Plugins > Plugin installieren_. 
+3. Laden Sie das .zip-File hoch und klicken Sie _Plugin installieren_.
+4. Überprüfen Sie die Hinweise und schließen Sie die Installation ab.
+5. Sie bekommen anschließend eine Seite zur Konfiguration des Plugins angezeigt. Tragen Sie hier bitte ein, in welchen Kursen das Plugin aktiv sein darf. Hier wird eine Folge von Kurs-IDs benötigt, die Sie durch Kommas trennen können (also z.B. 13, 34). Zum Auffinden der benötigten Kurs-IDs werden die in Ihrem Moodle vorhandenen Kurse samt IDs unter dem Feld für die Eintragung gelistet, suchen Sie sich dort bitte die gewünschte ID heraus. Alternativ finden Sie die Kurs-ID auch am Ende der URL Ihrer Kurshauptseite. Damit ist die Konfiguration abgeschlossen.
+
+Falls die Konfiguration später geändert werden soll, kommen Sie zurück zur Plugin-Seite (_Website-Administration > Plugins_). Sie finden dort unter _Bereich: Lokale Plugins_ den Punkt _Manage Activity Autocompletion Settings_, unter dem Sie das Plugin wie oben erklärt konfigurieren können.
+
+Bitte beachten Sie, dass das Plugin nicht rückwirkend funktioniert: es markiert die Alternativen erst ab dem Zeitpunkt, ab dem es für einen Kurs konfiguriert wurde, automatisch als erledigt. Alternativen zu bereits früher abgeschlossenem Arbeitsmaterial bleiben unerledigt und müssen ggf. von Hand erledigt werden. Wenn die Funktionalität also gewünscht wird, sollte das Plugin möglichst vor Kursbeginn installiert sein.
 
  
 ## English description
@@ -39,14 +51,16 @@ In addition, it is posible to introduce a label that contains the text "kann ich
 
 The plugin is only active in those courses for which it is configured (by indicating the respective course IDs in the settings of the plugin).
 
+## Installing via Moodle Web Interface
 
-## Installing via uploaded ZIP file ##
-
-1. Log in to your Moodle site as an admin and go to _Site administration >
+1. Load the .zip file with the newest version from [https://github.com/SE-Stuttgart/kib3_moodleplugin_autocompleteactivities/releases] 
+2. Log in to your Moodle site as an admin and go to _Site administration >
    Plugins > Install plugins_.
-2. Upload the ZIP file with the plugin code. You should only be prompted to add
-   extra details if your plugin type is not automatically detected.
-3. Check the plugin validation report and finish the installation.
+3. Upload the ZIP file with the plugin code and click _Install plugin from the ZIP file_
+4. Check the plugin validation report and finish the installation.
+5. You are prompted to configure the plugin. Please specify in which courses the plugin should be active. This is specified by a sequence of course IDs, separated by commas (e.g.: 13, 34). For finding the relevant IDs, you are shown all courses that are present in your Moodle along with their IDs; please pick the ones you need. Alternatively you can find the course ID at the end of the URL of your course main page. This concludes the configuration.
+
+If you want to change the configuration later, come back to the plugin page (_Site administration > Plugins_). Click _Category: Local plugins_. You will find the configuration page of the plugin under _Manage Activity Autocompletion Settings_.
 
 ## Installing manually ##
 
