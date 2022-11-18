@@ -31,21 +31,39 @@ defined('MOODLE_INTERNAL') || die;
 
 if ($hassiteconfig) {
     $ADMIN->add('localplugins', new admin_category('local_autocompleteactivities_settings', "Autocomplete Activities"));
-    $settingspage = new admin_settingpage('managelocalautocompleteactivities', 'Manage Activity Autocompletion Settings');
+    $settingspage = new admin_settingpage('managelocalautocompleteactivities', 'Activity Autocompletion Settings');
 	if ($ADMIN->fulltree) {
 		
 		/*
 		* Properties
 		*/
 		
-		// get list of all courses and add those to the description
+		// course configuration: which courses should the plugin be active for
 		$courses = $DB->get_records('course');
-		$courselist = "<br><b>Selection: </b><br>";
-		foreach($courses as $course) { 
-			$courselist = $courselist . "Kurs: " . $course->fullname . ", ID: <b>" . $course->id . "</b><br>";
+		$courselist = array();
+		// get list of all courses and add those to the offered selection
+		foreach($courses as $course) {  
+			$courselist[$course->id] = $course->fullname;
 		}
-		$settingspage->add(new admin_setting_configtext('local_autocompleteactivities_coursenames', "Course IDs", 
-													"Add a comma-seperated list of course ids where the plugin should be active here:" . $courselist, "", PARAM_TEXT));
+		$settingspage->add(new admin_setting_configmulticheckbox(
+            'local_autocompleteactivities/courseids',
+            get_string('courses', 'local_autocompleteactivities'),
+            get_string('courses_description', 'local_autocompleteactivities'),
+            null,
+            $courselist));
+		
+		// prefix match pattern
+		$settingspage->add(new admin_setting_configtext('local_autocompleteactivities/matchingprefix', get_string('matching_prefix', "local_autocompleteactivities"),
+													get_string('matching_prefix_description', "local_autocompleteactivities"), '/(.*)[(]/U', PARAM_RAW));
+													
+		// Additional matching texts
+		$settingspage->add(new admin_setting_configtext('local_autocompleteactivities/labelmatches', get_string('matching_label', "local_autocompleteactivities"),
+													get_string('matching_label_description', "local_autocompleteactivities"), "kann ich schon", PARAM_TEXT));
+													
+		// whitelist of course module types 
+		$settingspage->add(new admin_setting_configtext('local_autocompleteactivities/modulenames', get_string('matching_module_whitelist', "local_autocompleteactivities"),
+													get_string('matching_module_whitelist_description', "local_autocompleteactivities"), "book,resource,label,url", PARAM_TEXT));
+
 	}
 
     $ADMIN->add('localplugins', $settingspage);

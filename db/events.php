@@ -17,15 +17,14 @@
 /**
  * Plugin administration pages are defined here.
  *
- * @package     mod_icecreamgame
- * @category    admin
+ * @package     local_autocompleteactivities
+ * @category    events
  * @copyright   2022 Universtity of Stuttgart <dirk.vaeth@ims.uni-stuttgart.de>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-// catching all moodle events: eventname = *
 $observers = array(
     array(
         'eventname'   => '\core\event\course_module_completion_updated',
