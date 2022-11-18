@@ -28,6 +28,7 @@
  */
 
 defined('MOODLE_INTERNAL') || die;
+require_login();
 
 if ($hassiteconfig) {
     $ADMIN->add('localplugins', new admin_category('local_autocompleteactivities_settings', "Autocomplete Activities"));
