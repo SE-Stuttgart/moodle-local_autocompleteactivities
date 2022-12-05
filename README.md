@@ -57,7 +57,7 @@ More details on functionality and configuration of this plugin can be found in t
  
 ## Installing via Moodle Web Interface
 
-1. Load the .zip file with the newest version from [https://github.com/SE-Stuttgart/kib3_moodleplugin_autocompleteactivities/releases] 
+1. Load the .zip file with the newest version from [https://github.com/SE-Stuttgart/kib3_moodleplugin_autocompleteactivities/releases](https://github.com/SE-Stuttgart/kib3_moodleplugin_autocompleteactivities/releases).
 2. Log in to your Moodle site as an admin and go to _Site administration >
    Plugins > Install plugins_.
 3. Upload the ZIP file with the plugin code and click _Install plugin from the ZIP file_
