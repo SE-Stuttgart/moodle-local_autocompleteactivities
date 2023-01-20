@@ -3,19 +3,25 @@
 ## English Description
 **German version please see below**
 
-This plugin allows to provide activities and resources of types URL, file or book as alternative resources. 
+This plugin helps with activity completion tracking when sections provide the same material in different forms, e.g. as interactive book, PDF or Video-URL.
+If any of the alternatives is marked complete, the plugin automatically marks the remaining alternatives as complete too.
 
-If one of the alternatives is marked complete, the plugin automatically marks the remaining alternatives as complete too. 
+It considers activities and resources as alternatives that are within the same section and follow a configurable regular expression matching pattern.
 
-It considers those activities and resources as alternatives that are within the same section and have identical names up to an opening bracket. Thus, material could be offered as
+To see the completion state change, users might have to refresh the page.
+
+
+Thus, material in a section could be offered as
 
 * example topic (book variant)
 * example topic (link to a video variant)
 * example topic (as a PDF file)
 
-The plugin then considers them alternatives, and if one is completed, it automatically marks the others as completed too. 
+With a regular expression that considers the materials to be alternatives if their names match up to opening parenthesis,
+the plugin then considers these alternatives, and if one is completed, it automatically marks the others as completed too. 
 
-In addition, it is possible to introduce a label that contains the text "kann ich schon". In this case learners can indicate that they don't need to go through any of the alternatives. If such a label is present, it is automatically marked complete if one of the alternatives is completed (assuming that in this case there is also no need to go through the alternatives any more). The automatic marking does not work the other way: if only the label is marked as complete, the alternatives keep their completion status. 
+
+In addition, it is possible to introduce a label that e.g. contains the text "I know this already". In this case learners can indicate that they don't need to go through any of the alternatives. If such a label is present, it is automatically marked complete if one of the alternatives is completed (assuming that in this case there is also no need to go through the alternatives any more). The automatic marking does not work the other way: if only the label is marked as complete, the alternatives keep their completion status. 
 
 The plugin is only active in those courses for which it is configured (by indicating the respective course IDs in the settings of the plugin).
 
@@ -51,17 +57,26 @@ to complete the installation from the command line.
 
 ## Deutsche Beschreibung
 
-Dieses Plugin erlaubt es, Aktivitäten und Arbeitsmaterial vom Typ URL, Datei oder Buch als Alternativen zur Verfügung zu stellen. 
+This plugin helps with activity completion tracking when sections provide the same material in different forms, e.g. as interactive book, PDF or Video-URL.
+If any of the alternatives is marked complete, the plugin automatically marks the remaining alternatives as complete too.
 
+It considers activities and resources as alternatives that are within the same section and follow a configurable regular expression matching pattern.
+
+To see the completion state change, users might have to refresh the page.
+
+Dieses Plugin hilft beim Verfolgen der abgeschlossenen Aktivitäten im Falle dass Abschnitte das gleiche Selbe in verschiedenen Formen anbieten, z.B. as interaktives Buch, PDF oder Link zu einem Video.
 Wenn eine der Alternativen als abgeschlossen markiert wird, markiert das Plugin automatisch auch die Alternativen in der Datenbank als abgeschlossen. 
 
-Als Alternativen gelten Aktivitäten und Arbeitsmaterial innerhalb des selben Kursabschnitts, wenn ihre Namen bis zu einer öffnenden Klammer identisch sind. So kann man das Material z.B. als 
+Als Alternativen gelten Aktivitäten und Arbeitsmaterial innerhalb des selben Kursabschnitts, die einen konfigurierbaren regulären Ausdruck erfüllen. 
 
-* Beispielthema (Buchvariante)
-* Beispielthema (Link zu Videovariante)
-* Beispielthema (als PDF)
 
-zur Verfügung stellen. Das Plugin erkennt dann, dass es sich um Alternativen handelt, und kennzeichnet bei Erledigung einer Alternative auch die anderen als erledigt. 
+So könnte Material in einem Kursabschnitt z.B. angeboten werden als
+
+* Beispielthema (Buch-Variante)
+* Beispielthema (Video-Link-Variante)
+* Beispielthema (PDF-Datei-Variante)
+
+Mit einem regulären Ausruck, der Materialien als Alternativen akzeptiert falls ihre Namen bis zu einer offenen Klammer übereinstimmen, wird das Plugin alle diese Alternativen automatisch als abgeschlossen markieren, sobald eine beliebige davon abgeschlossen wurde.
 
 Außerdem ist es möglich, zusätzlich ein Textfeld anzulegen, das den Text "kann ich schon" enthält. Dadurch können Lernende selbständig markieren, welches Material sie überspringen wollen. Falls so ein Textfeld vorhanden ist, wird es bei der Erledigung der Aktivitäten in dem Abschnitt automatisch ebenfalls als erledigt gekennzeichnet. Andersherum geschieht das allerdings nicht automatisch: wird nur das Textfeld "kann ich schon" erledigt, behalten die weiteren Materialien ihren Erledigungs-Status. 
 
