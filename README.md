@@ -25,12 +25,12 @@ In addition, it is possible to introduce a label that e.g. contains the text "I 
 
 The plugin is only active in those courses for which it is configured (by indicating the respective course IDs in the settings of the plugin).
 
-More details on functionality and configuration of this plugin can be found in the [Wiki](https://github.com/SE-Stuttgart/kib3_moodleplugin_autocompleteactivities/wiki).
+More details on functionality and configuration of this plugin can be found in the [Wiki](https://github.com/SE-Stuttgart/moodle-local_autocompleteactivities/wiki).
  
  
 ### Installing via Moodle Web Interface
 
-1. Load the .zip file with the newest version from [https://github.com/SE-Stuttgart/kib3_moodleplugin_autocompleteactivities/releases](https://github.com/SE-Stuttgart/kib3_moodleplugin_autocompleteactivities/releases).
+1. Load the .zip file with the newest version from [https://github.com/SE-Stuttgart/moodle-local_autocompleteactivities/releases](https://github.com/SE-Stuttgart/moodle-local_autocompleteactivities/releases).
 2. Log in to your Moodle site as an admin and go to _Site administration >
    Plugins > Install plugins_.
 3. Upload the ZIP file with the plugin code and click _Install plugin from the ZIP file_
@@ -43,7 +43,7 @@ If you want to change the configuration later, come back to the plugin page (_Si
 
 The plugin can be also installed by putting the contents of this directory to
 
-    {your/moodle/dirroot}/local/autocomplete_activities
+    {your/moodle/dirroot}/local/autocompleteactivities
 
 Afterwards, log in to your Moodle site as an admin and go to _Site administration >
 Notifications_ to complete the installation.
@@ -86,7 +86,7 @@ Mehr Informationen zu den Funktionen und zur Konfiguration des Plugins sind im [
 
 ### Installation über das Web-Interface von Moodle
 
-1. Laden Sie unter [https://github.com/SE-Stuttgart/kib3_moodleplugin_autocompleteactivities/releases](https://github.com/SE-Stuttgart/kib3_moodleplugin_autocompleteactivities/releases) das .zip-File mit der neuesten Version.
+1. Laden Sie unter [https://github.com/SE-Stuttgart/moodle-local_autocompleteactivities/releases](https://github.com/SE-Stuttgart/moodle-local_autocompleteactivities/releases) das .zip-File mit der neuesten Version.
 2. Loggen Sie sich in Ihrem Moodle als Admin ein und gehen Sie zu _Website-Administration > Plugins > Plugin installieren_. 
 3. Laden Sie das .zip-File hoch und klicken Sie _Plugin installieren_.
 4. Überprüfen Sie die Hinweise und schließen Sie die Installation ab.
