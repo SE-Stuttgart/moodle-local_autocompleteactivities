@@ -26,7 +26,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['pluginname'] = 'Autocomplete Activities';
-
+$string['settings_header'] = 'Autocomplete Activities';
+$string['settingspage'] = 'Activity Autocompletion Settings';
 $string['courses'] = 'Available Courses';
 $string['courses_description'] = 'Select all the courses the autocompletion should be enabled for';
 $string['id'] = "ID";

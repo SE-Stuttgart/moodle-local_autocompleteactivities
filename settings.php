@@ -30,8 +30,8 @@
 defined('MOODLE_INTERNAL') || die;
 
 if ($hassiteconfig) {
-    $ADMIN->add('localplugins', new admin_category('local_autocompleteactivities_settings', "Autocomplete Activities"));
-    $settingspage = new admin_settingpage('managelocalautocompleteactivities', 'Activity Autocompletion Settings');
+    $ADMIN->add('localplugins', new admin_category('local_autocompleteactivities_settings', get_string('settings_header', 'local_autocompleteactivities')));
+    $settingspage = new admin_settingpage('managelocalautocompleteactivities', get_string('settingspage', 'local_autocompleteactivities'));
     if ($ADMIN->fulltree) {
 
 
