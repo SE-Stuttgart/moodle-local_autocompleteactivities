@@ -26,6 +26,6 @@ defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'local_autocompleteactivities';
 $plugin->release = '1.0.0';
-$plugin->version = 2022111803;
+$plugin->version = 2023060605;
 $plugin->requires = 2020061514;
 $plugin->maturity = MATURITY_STABLE;
