@@ -24,9 +24,6 @@
 namespace local_autocompleteactivities;
 require_once("$CFG->libdir/externallib.php");
 
-defined('MOODLE_INTERNAL') || die();
-
-
 /**
  * Class description
  *
