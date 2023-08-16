@@ -40,7 +40,7 @@ if ($hassiteconfig) {
         */
 
         // Course configuration: which courses should the plugin be active for.
-        $courses = get_courses(fields: "c.id,c.fullname");
+        $courses = get_courses("all", "c.sortorder ASC", "c.id,c.fullname");
         $courselist = array();
         // Get list of all courses and add those to the offered selection.
         foreach ($courses as $course) {
